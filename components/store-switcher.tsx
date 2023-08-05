@@ -23,7 +23,7 @@ interface StoreSwitcherProps extends PopoverTriggerProps {
 }
 
 const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
-  const storeModel = useStoreModal();
+  const storeModal = useStoreModal();
   const params = useParams();
   const router = useRouter();
 
@@ -85,7 +85,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
               <CommandItem
                 onSelect={() => {
                   setOpen(false);
-                  storeModel.onOpen();
+                  storeModal.onOpen();
                 }}>
                 <PlusCircle className="mr-2 h-5 w-5 " />
                 Create New Store
