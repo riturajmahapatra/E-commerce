@@ -38,3 +38,4 @@ next-env.d.ts
 
 # Sachin changes
 .vscode
+package-lock.json
