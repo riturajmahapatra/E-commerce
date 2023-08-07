@@ -1,15 +1,14 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
-interface useStoreModalStore{
-    isOpen : boolean;
-    onOpen: ()=> void;
-    onClose: ()=> void;
-};
+interface useStoreModalStoreInterface {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}
 
-export const useStoreModal = create<useStoreModalStore>((set) =>({
-
-    isOpen: false,
-    onOpen:()=> set({isOpen: true}),
-    onClose:()=> set ({isOpen: false}),
-}))
-
+// This is global state management for modal component.
+export const useStoreModal = create<useStoreModalStoreInterface>((set) => ({
+  isOpen: false,
+  onOpen: () => set({ isOpen: true }),
+  onClose: () => set({ isOpen: false })
+}));

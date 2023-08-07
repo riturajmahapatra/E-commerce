@@ -1,67 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-Commerce Website
 
-## Getting Started
+## Dependencies installed
 
-First, run the development server:
+- Tailwindcss
+- Shadcn
+- Clerk
+- zustand (state management)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Project file structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- src folder is not included in the repository
+- app router to navigate between pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+> ### Shadcn
+>
+> - Added shadcn with default settings.
+> - Base color slate
+> - Configured with tailwind css.
+> - All shadcn components are added into app/components/ui folder.
+> - Global css base layer added by shadcn.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+> ### Clerk Authentication
+>
+> - Follow the clerk for nextjs documentation [🚀🔗](https://clerk.com/docs/nextjs/overview)
+> - The sign-in and sing-up pages are added in app/(auth)/(routes) folder.
+> - The parent layout.tsx will setup the structure for both pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# E-commerce
-
-
-<!-- testing -->
-<!-- 
-
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_bm9ibGUtZG92ZS02Mi5jbGVyay5hY2NvdW50cy5kZXYk
-CLERK_SECRET_KEY=sk_test_S9QNwGa9tiCfKVqXcotg3RydHW6E6WyCbdEZ1LPGnU
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
-
-
-
-# This was inserted by `prisma init`:
-# Environment variables declared in this file are automatically made available to Prisma.
-# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
-
-# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
-# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
-
-
-
-# This was inserted by `prisma init`:
-# Environment variables declared in this file are automatically made available to Prisma.
-# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
-
-# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
-# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
-
-
-DATABASE_URL='mysql://qauijkh8tbbfk4c8h4is:pscale_pw_Dy2yMyCKljlFVKtY7IxqgupRGh6BjW0f50AE44VRvuT@aws.connect.psdb.cloud/e-commercedb?sslaccept=strict' -->
+> ### Zustand (state management)
+>
+> - The zustand state's are added in app/hooks folder.
