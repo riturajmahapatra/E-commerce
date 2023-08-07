@@ -1,7 +1,10 @@
-import prismadb from '@/lib/prismadb';
-import { CategoryClient } from './components/client';
-import { CategoryColumn } from './components/columns';
 import { format } from 'date-fns';
+
+import prismadb from '@/lib/prismadb';
+
+import { CategoryColumn } from './components/columns';
+import { CategoriesClient } from './components/client';
+
 const CategoriesPage = async ({ params }: { params: { storeId: string } }) => {
   const categories = await prismadb.category.findMany({
     where: {
@@ -21,12 +24,14 @@ const CategoriesPage = async ({ params }: { params: { storeId: string } }) => {
     billboardLabel: item.billboard.label,
     createdAt: format(item.createdAt, 'MMMM do, yyyy')
   }));
+
   return (
     <div className="flex-col">
       <div className="flex-1 space-y-4 p-8 pt-6">
-        <CategoryClient data={formattedCategories} />
+        <CategoriesClient data={formattedCategories} />
       </div>
     </div>
   );
 };
+
 export default CategoriesPage;
