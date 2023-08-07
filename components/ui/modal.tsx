@@ -1,41 +1,37 @@
-"use client";
-
-import { 
-    Dialog, 
-    DialogContent, 
-    DialogHeader, 
-    DialogDescription, 
-    DialogTitle } from "./dialog";
+'use client';
+// The modal is using dialog.tsx from shadcn for ui design.
+// The modal have children props to render the content which came from components\modals\store-modal.tsx.
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogDescription,
+  DialogTitle
+} from '@/components/ui/dialog';
 
 interface ModalProps {
-    title: string;
-    description: string;
-    isOpen: boolean;
-    onClose: ()=> void;
-    children?: React.ReactNode;
-};
-
-export const Modal: React.FC<ModalProps> = ({
-    title,
-    description,
-    isOpen,
-    onClose,
-    children
-}) => {
-    const onChange = (open: boolean) => {
-        if(!open) {
-            onClose();
-        }
-    };
-    return(
-        <Dialog open={isOpen} onOpenChange={onChange}>
-            <DialogContent>
-                <DialogHeader>
-                    <DialogTitle>{title}</DialogTitle>
-                    <DialogDescription> {description}</DialogDescription> 
-                </DialogHeader>
-                <div>{children}</div>
-            </DialogContent>
-        </Dialog>
-    )
+  title: string;
+  description: string;
+  isOpen: boolean;
+  onClose: () => void;
+  children?: React.ReactNode;
 }
+
+export const Modal: React.FC<ModalProps> = ({ title, description, isOpen, onClose, children }) => {
+  const onChange = (open: boolean) => {
+    if (!open) {
+      onClose();
+    }
+  };
+  return (
+    <Dialog open={isOpen} onOpenChange={onChange}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>{title}</DialogTitle>
+          <DialogDescription> {description}</DialogDescription>
+        </DialogHeader>
+        <div>{children}</div>
+      </DialogContent>
+    </Dialog>
+  );
+};

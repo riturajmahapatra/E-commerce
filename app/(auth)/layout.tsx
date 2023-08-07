@@ -1,13 +1,8 @@
-import React from "react";
-import './layout.css';
-export default function AuthLayout({
-    children
-}:{
-    children: React.ReactNode
-}) {
-    return(
-        <div className="imga">
-            {children}
-        </div>
-    )
+import React from 'react';
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <div className="flex justify-center items-center h-full mt-[100px]">{children}</div>
+    </>
+  );
 }

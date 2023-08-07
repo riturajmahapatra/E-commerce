@@ -4,7 +4,7 @@
 html,body:root{
   height: 100%;
 }
- 
+/* base layer is modified by shadcd */
 @layer base {
   :root {
     --background: 0 0% 100%;
