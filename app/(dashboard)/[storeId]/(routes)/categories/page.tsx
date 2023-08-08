@@ -4,7 +4,11 @@ import prismadb from '@/lib/prismadb';
 
 import { CategoryColumn } from './components/columns';
 import { CategoriesClient } from './components/client';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'Categories'
+};
 const CategoriesPage = async ({ params }: { params: { storeId: string } }) => {
   const categories = await prismadb.category.findMany({
     where: {

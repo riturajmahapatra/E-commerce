@@ -2,6 +2,11 @@ import prismadb from '@/lib/prismadb';
 import { BillboardClient } from './components/client';
 import { BillboardColumn } from './components/columns';
 import { format } from 'date-fns';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Billboard'
+};
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const billboards = await prismadb.billboard.findMany({
     where: {

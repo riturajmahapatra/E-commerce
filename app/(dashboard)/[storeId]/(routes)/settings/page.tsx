@@ -3,7 +3,11 @@ import { auth } from '@clerk/nextjs';
 
 import prismadb from '@/lib/prismadb';
 import { SettingsForm } from './components/settings-form';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'Settings'
+};
 const SettingsPage = async ({ params }: { params: { storeId: string } }) => {
   const { userId } = auth();
 
