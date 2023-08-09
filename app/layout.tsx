@@ -1,5 +1,4 @@
 import './globals.css';
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 // ClerkProvider will encapsulate the entire app to provide authentication and session management
@@ -34,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en">
         <body className={inter.className}>
           <ToasterProvider />
-          <ModalProvider></ModalProvider>
+          <ModalProvider />
           {children}
         </body>
       </html>
