@@ -117,5 +117,3 @@ export async function GET(req: Request, { params }: { params: { storeId: string 
     return new NextResponse('Internal error', { status: 500 });
   }
 }
-
-/* hello */
