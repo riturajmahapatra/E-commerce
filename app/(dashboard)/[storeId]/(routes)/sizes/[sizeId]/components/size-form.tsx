@@ -4,6 +4,7 @@ import * as z from 'zod';
 import axios from 'axios';
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Trash } from 'lucide-react';
 import { Size } from '@prisma/client';
@@ -22,8 +23,6 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { Heading } from '@/components/ui/heading';
 import { AlertModal } from '@/components/modals/alert-modal';
-import ImageUpload from '@/components/ui/image-upload';
-import { useForm } from 'react-hook-form';
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -51,8 +50,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({ initialData }) => {
   const form = useForm<SizeFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
-      name: '',
-      value: ''
+      name: ''
     }
   });
 
