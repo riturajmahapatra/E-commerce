@@ -187,7 +187,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               name="price"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Price</FormLabel>
+                  <FormLabel>Price &nbsp;(&#x20B9;)</FormLabel>
                   <FormControl>
                     <Input type="number" disabled={loading} placeholder="9.99" {...field} />
                   </FormControl>
@@ -270,7 +270,13 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                     <SelectContent>
                       {colors.map((color) => (
                         <SelectItem key={color.id} value={color.id}>
-                          {color.name}
+                          <div className="w-full flex justify-around gap-5 ">
+                            <div
+                              className="h-6 w-6 rounded-full border"
+                              style={{ backgroundColor: color.value }}
+                            />
+                            {color.value}
+                          </div>
                         </SelectItem>
                       ))}
                     </SelectContent>
