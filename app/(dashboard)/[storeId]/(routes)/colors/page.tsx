@@ -19,7 +19,7 @@ const ColorsPage = async ({ params }: { params: { storeId: string } }) => {
 
   const formattedColors: ColorColumn[] = colors.map((item) => ({
     id: item.id,
-    name: item.name,
+    // name: item.name,
     value: item.value,
     createdAt: format(item.createdAt, 'MMMM do, yyyy')
   }));

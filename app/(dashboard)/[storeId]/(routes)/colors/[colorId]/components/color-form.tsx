@@ -25,9 +25,8 @@ import { Heading } from '@/components/ui/heading';
 import { AlertModal } from '@/components/modals/alert-modal';
 
 const formSchema = z.object({
-  name: z.string().min(2),
-  value: z.string().min(4).max(9).regex(/^#/, {
-    message: 'Please enter hex code'
+  value: z.string().min(3, {
+    message: 'Please enter correct color value'
   })
 });
 
@@ -52,7 +51,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({ initialData }) => {
   const form = useForm<ColorFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
-      name: ''
+      value: ''
     }
   });
 
@@ -60,6 +59,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({ initialData }) => {
     try {
       setLoading(true);
       if (initialData) {
+        console.log(data);
         await axios.patch(`/api/${params.storeId}/colors/${params.colorId}`, data);
       } else {
         await axios.post(`/api/${params.storeId}/colors`, data);
@@ -109,7 +109,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({ initialData }) => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
           <div className="md:grid md:grid-cols-3 gap-8">
-            <FormField
+            {/* <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
@@ -121,7 +121,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({ initialData }) => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={form.control}
               name="value"
@@ -130,7 +130,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({ initialData }) => {
                   <FormLabel>Value</FormLabel>
                   <FormControl>
                     <div className="flex items-center gap-x-4">
-                      <Input disabled={loading} placeholder="Eg: #000000" {...field} />
+                      <Input disabled={loading} placeholder="Eg: Red" {...field} />
                       <div
                         className="border p-4 rounded-full"
                         style={{ backgroundColor: field.value }}

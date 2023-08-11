@@ -9,14 +9,10 @@ export async function POST(req: Request, { params }: { params: { storeId: string
 
     const body = await req.json();
 
-    const { name, value } = body;
+    const { value } = body;
 
     if (!userId) {
       return new NextResponse('Unauthenticated', { status: 403 });
-    }
-
-    if (!name) {
-      return new NextResponse('Name is required', { status: 400 });
     }
 
     if (!value) {
@@ -40,7 +36,6 @@ export async function POST(req: Request, { params }: { params: { storeId: string
 
     const color = await prismadb.color.create({
       data: {
-        name,
         value,
         storeId: params.storeId
       }
