@@ -10,6 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { ApiList } from '@/components/ui/api-list';
 
 import { ProductColumn, columns } from './columns';
+import { useState } from 'react';
 
 interface ProductsClientProps {
   data: ProductColumn[];
@@ -18,6 +19,14 @@ interface ProductsClientProps {
 export const ProductsClient: React.FC<ProductsClientProps> = ({ data }) => {
   const params = useParams();
   const router = useRouter();
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredData = data.filter((item) => {
+    const nameMatch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const categoryMatch = item.category.toLowerCase().includes(searchTerm.toLowerCase());
+    return nameMatch || categoryMatch;
+  });
 
   return (
     <>
@@ -28,7 +37,16 @@ export const ProductsClient: React.FC<ProductsClientProps> = ({ data }) => {
         </Button>
       </div>
       <Separator />
-      <DataTable searchKey="name" columns={columns} data={data} />
+      <div className="mb-4">
+        <input
+          type="text"
+          placeholder="Search by name or category..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border border-gray-300 px-3 py-2 rounded-md w-half"
+        />
+      </div>
+      <DataTable searchKey="name" columns={columns} data={filteredData} />
       <Heading title="API" description="API Calls for Products" />
       <Separator />
       <ApiList entityName="products" entityIdName="productId" />
